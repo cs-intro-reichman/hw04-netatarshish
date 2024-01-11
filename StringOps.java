@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("  tello    World"));
+        System.out.println(capVowelsLowRest("one of hello"));
     
         
     }
@@ -35,7 +35,7 @@ public class StringOps {
 
         if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u') {
             result += (char) (currentChar - 32); 
-        } else if (currentChar >= 'A' && currentChar <= 'Z') {
+        } else if (currentChar > 'A' && currentChar <= 'Z'&& currentChar!='A' && currentChar!='I' && currentChar!='O'&& currentChar!='U') {
             result += (char) (currentChar + 32); 
         } else {
             result += currentChar; 
