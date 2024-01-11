@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("Hello world"));
+        System.out.println(camelCase("  Hello   world"));
     
         
     }
@@ -64,7 +64,7 @@ public class StringOps {
             else if(currentChar >= 'A' && currentChar <= 'Z'){
             result += (char)(currentChar + 32);
         }
-        else if (currentChar!=' '){
+        else if (currentChar!= 32){
              result += (char)currentChar;
         }
     }
