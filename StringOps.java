@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase("  Hello   World"));
+        System.out.println(camelCase("  tello    World"));
     
         
     }
@@ -47,7 +47,11 @@ public class StringOps {
 
     public static String camelCase (String string) {
         String result = "";
-        char currentChar = (char)(string.charAt(0));
+        int check=0;
+        while((char)(string.charAt(check))==32){
+            check++;
+        }
+        char currentChar = (char)(string.charAt(check));
         char lastChar = 0;
         if(currentChar >= 'A' && currentChar <= 'Z'){
             result += (char)(currentChar + 32);
@@ -55,13 +59,13 @@ public class StringOps {
         else{
             result += (char)currentChar;
         }
-        for(int i = 1; i<string.length();i++){
+        for(int i = check + 1; i<string.length();i++){
             currentChar = (char)(string.charAt(i));
             lastChar = (char)(string.charAt(i-1));
             if(lastChar == ' ' && currentChar >= 'a' && currentChar <= 'z'&&currentChar!=' '){
                 result += (char)(currentChar - 32);
             }
-            else if(lastChar!= ' '&&currentChar >= 'A' && currentChar <= 'Z'){
+            else if(lastChar!= 32 &&currentChar >= 'A' && currentChar <= 'Z'){
             result += (char)(currentChar + 32);
         }
         else if (currentChar!= 32){
