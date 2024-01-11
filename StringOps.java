@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        System.out.println(camelCase(" Two hw"));
+        System.out.println(camelCase("Hello world"));
     
         
     }
@@ -47,19 +47,15 @@ public class StringOps {
 
     public static String camelCase (String string) {
         String result = "";
-        int check = 0;
-        while((char)(string.charAt(check))!=' '){
-            check++;
-        }
-        char currentChar = (char)(string.charAt(check));
+        char currentChar = (char)(string.charAt(0));
         char lastChar = 0;
         if(currentChar >= 'A' && currentChar <= 'Z'){
             result += (char)(currentChar + 32);
         }
-        else if (currentChar!=' '){
+        else{
             result += (char)currentChar;
         }
-        for(int i = check + 1; i<string.length();i++){
+        for(int i = 1; i<string.length();i++){
             currentChar = (char)(string.charAt(i));
             lastChar = (char)(string.charAt(i-1));
             if(lastChar == ' ' && currentChar >= 'a' && currentChar <= 'z'&&currentChar!=' '){
@@ -72,7 +68,15 @@ public class StringOps {
              result += (char)currentChar;
         }
     }
-        return result;
+    String finalResult = "";
+    if(result.charAt(0)==' '){
+        for(int j = 1; j<result.length();j++){
+            finalResult += result.charAt(j);
+        }
+        return finalResult;
+
+    }
+       else return result;
     }
 
     public static int[] allIndexOf (String string, char chr) {
