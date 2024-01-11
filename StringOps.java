@@ -22,7 +22,7 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+    
         
     }
 
@@ -71,25 +71,24 @@ public class StringOps {
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        int [] result = new int [string.length()];
-        int placeInResult = 0;
-        for(int i = 0; i<string.length();i++){
-            char currentChar = (char)(string.charAt(i));
-            if(currentChar==chr){
-                result [placeInResult] = i;
-                placeInResult += 1;
-            }
+        int count = 0;
+
+    for (int i = 0; i < string.length(); i++) {
+        if (string.charAt(i) == chr) {
+            count++;
         }
-        int counter = 0;
-        for(int j = 0;j<result.length;j++){
-            if(result[j]!=0){
-                counter++;
-            }
+    }
+
+    int[] result = new int[count];
+    int placeInResult = 0;
+
+    for (int i = 0; i < string.length(); i++) {
+        if (string.charAt(i) == chr) {
+            result[placeInResult] = i;
+            placeInResult++;
         }
-        int [] finalResult = new int [counter];
-        for(int t = 0;t<finalResult.length;t++){
-            finalResult[t] = result[t];
-        }
-        return finalResult;
+    }
+
+    return result;
     }
 }
