@@ -23,20 +23,73 @@ public class StringOps {
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         
+        
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String result = "";
+
+    for (int i = 0; i < string.length(); i++) {
+        char currentChar = string.charAt(i);
+
+        if (currentChar == 'a' || currentChar == 'e' || currentChar == 'i' || currentChar == 'o' || currentChar == 'u') {
+            result += (char) (currentChar - 32); 
+        } else if (currentChar >= 'A' && currentChar <= 'Z') {
+            result += (char) (currentChar + 32); 
+        } else {
+            result += currentChar; 
+        }
     }
 
+    return result;
+}
+
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String result = "";
+        char currentChar = (char)(string.charAt(0));
+        char lastChar = 0;
+        if(currentChar >= 'A' && currentChar <= 'Z'){
+            result += (char)(currentChar + 32);
+        }
+        else{
+            result += (char)currentChar;
+        }
+        for(int i = 1; i<string.length();i++){
+            currentChar = (char)(string.charAt(i));
+            lastChar = (char)(string.charAt(i-1));
+            if(lastChar == ' ' && currentChar >= 'a' && currentChar <= 'z'){
+                result += (char)(currentChar - 32);
+            }
+            else if(currentChar >= 'A' && currentChar <= 'Z'){
+            result += (char)(currentChar + 32);
+        }
+        else if (currentChar!=' '){
+             result += (char)currentChar;
+        }
+    }
+        return result;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int [] result = new int [string.length()];
+        int placeInResult = 0;
+        for(int i = 0; i<string.length();i++){
+            char currentChar = (char)(string.charAt(i));
+            if(currentChar==chr){
+                result [placeInResult] = i;
+                placeInResult += 1;
+            }
+        }
+        int counter = 0;
+        for(int j = 0;j<result.length;j++){
+            if(result[j]!=0){
+                counter++;
+            }
+        }
+        int [] finalResult = new int [counter];
+        for(int t = 0;t<finalResult.length;t++){
+            finalResult[t] = result[t];
+        }
+        return finalResult;
     }
 }
